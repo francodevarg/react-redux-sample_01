@@ -6,6 +6,42 @@
   height: 40vmin;
   pointer-events: none;
 }
+.jugadores-contenedor{
+  display:flex;
+}
+
+.jugadores__img{
+  border-radius: 50%;
+  border: 2px solid gainsboro;
+  height: 100px;
+  width: 100px;
+}
+
+.btn-jugador{
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: white;
+  margin: 0 2px;
+  padding: 5px 10px;
+}
+.btn-jugador:hover{
+  cursor: pointer;
+}
+
+.btn--titular{
+  background-color: rgb(58, 134, 98);
+  color: white;
+}
+
+.btn--suplente{
+  border: 1px solid rgb(250, 152, 24);
+  color: rgb(250, 152, 24);
+}
+
+.btn--suplente:hover{
+  background-color: rgb(250, 152, 24);
+  color: white
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
