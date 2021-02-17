@@ -7,7 +7,7 @@ class Jugadores extends Component {
         return (
             <div>
                 <section>
-                    <h2>Jugadores</h2>
+                    <h2>Jugadores <span> {this.props.jugadores.length} </span></h2>
                     <div className="jugadores-contenedor">
                     {this.props.jugadores.map((j) => (
                         <article key={j.id}>
@@ -32,19 +32,21 @@ const mapStateToProps = (state) => ({
     jugadores: state.jugadores
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    agregarTitular(j){
-        dispatch({
-            type: "AGREGAR_TITULAR",
-            payload: j
-        })
-    },
-    agregarSuplente(j){
-        dispatch({
-            type: "AGREGAR_SUPLENTE",
-            payload: j
-        })
+const mapDispatchToProps = (dispatch) => {
+    return {
+        agregarTitular: (j) => {
+            dispatch({
+                type: "AGREGAR_TITULAR",
+                payload: j
+            })
+        },
+        agregarSuplente: (j) => {
+            dispatch({
+                type: "AGREGAR_SUPLENTE",
+                payload: j
+            })
+        }
     }
-})
+}
 
 export default connect(mapStateToProps,mapDispatchToProps)(Jugadores)

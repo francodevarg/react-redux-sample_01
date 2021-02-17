@@ -7,7 +7,7 @@ class Titulares extends Component {
         return (
             <section>
 
-                <h2>Titulares</h2>
+                <h2>Titulares <span> {this.props.titulares.length} </span></h2>
             <div className="jugadores-contenedor">
                 {
                     this.props.titulares.map(j => (
@@ -29,13 +29,16 @@ class Titulares extends Component {
 const mapStateToProps = state => ({
     titulares : state.titulares
 })
-const mapDispatchToProps = dispatch => ({
-    quitarTitular(j){
-        dispatch({
-            type: 'QUITAR_TITULAR',
-            payload: j
-        })
-    }
-})
 
+const mapDispatchToProps = dispatch => {
+    return {
+        //dispatching plain actions
+        quitarTitular: (j) => {
+            dispatch({
+                type: 'QUITAR_TITULAR',
+                payload: j
+            })
+        }
+    }
+}
 export default connect(mapStateToProps,mapDispatchToProps)(Titulares);

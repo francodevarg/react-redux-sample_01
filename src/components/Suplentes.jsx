@@ -5,7 +5,7 @@ class Suplentes extends Component {
     render() {
         return (
             <section>
-                <h2>Suplentes</h2>
+                <h2>Suplentes <span> {this.props.suplentes.length} </span> </h2>
                 <div className="jugadores-contenedor">
                     {
                         this.props.suplentes.map(j => (
@@ -27,13 +27,16 @@ class Suplentes extends Component {
 const mapStateToProps = state => ({
     suplentes : state.suplentes
 })
-const mapDispatchToProps = dispatch => ({
-    quitarSuplente(j){
-        dispatch({
-            type: 'QUITAR_SUPLENTE',
-            payload: j
-        })
+const mapDispatchToProps = dispatch => {
+    return {
+        quitarSuplente: (j) => {
+            dispatch({
+                type: 'QUITAR_SUPLENTE',
+                payload: j
+            })
+        }
     }
-})
+
+}
 
 export default connect(mapStateToProps,mapDispatchToProps)(Suplentes);
